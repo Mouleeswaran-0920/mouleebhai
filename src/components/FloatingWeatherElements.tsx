@@ -62,19 +62,19 @@ export const FloatingWeatherElements: React.FC<FloatingWeatherElementsProps> = (
           key={index}
           className={`absolute ${element.color} ${element.size} opacity-20`}
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
           }}
           animate={{
             x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
             ],
             y: [
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
             ],
             rotate: [0, 360, 0],
             scale: [1, 1.2, 1],
@@ -102,19 +102,19 @@ export const FloatingWeatherElements: React.FC<FloatingWeatherElementsProps> = (
             'bg-purple-400'
           }`}
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
           }}
           animate={{
             x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
             ],
             y: [
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
             ],
             scale: [1, 1.5, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -133,17 +133,17 @@ export const FloatingWeatherElements: React.FC<FloatingWeatherElementsProps> = (
           key={`sparkle-${index}`}
           className="absolute w-1 h-1 bg-white rounded-full opacity-60"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
           }}
           animate={{
             x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
             ],
             y: [
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
+              typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
             ],
             scale: [0, 1, 0],
             opacity: [0, 1, 0],

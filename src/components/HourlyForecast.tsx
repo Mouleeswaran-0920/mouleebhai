@@ -52,6 +52,17 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ data, units }) =
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
+              <defs>
+                <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ef4444" />
+                  <stop offset="16.66%" stopColor="#f97316" />
+                  <stop offset="33.33%" stopColor="#eab308" />
+                  <stop offset="50%" stopColor="#22c55e" />
+                  <stop offset="66.66%" stopColor="#3b82f6" />
+                  <stop offset="83.33%" stopColor="#6366f1" />
+                  <stop offset="100%" stopColor="#a855f7" />
+                </linearGradient>
+              </defs>
               <XAxis 
                 dataKey="time" 
                 axisLine={false}
@@ -80,17 +91,6 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ data, units }) =
                 strokeDasharray="8 8"
                 dot={false}
               />
-              <defs>
-                <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ef4444" />
-                  <stop offset="16.66%" stopColor="#f97316" />
-                  <stop offset="33.33%" stopColor="#eab308" />
-                  <stop offset="50%" stopColor="#22c55e" />
-                  <stop offset="66.66%" stopColor="#3b82f6" />
-                  <stop offset="83.33%" stopColor="#6366f1" />
-                  <stop offset="100%" stopColor="#a855f7" />
-                </linearGradient>
-              </defs>
             </LineChart>
           </ResponsiveContainer>
         </div>
