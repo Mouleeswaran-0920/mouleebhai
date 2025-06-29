@@ -16,9 +16,8 @@
     "framer-motion": "^10.16.16",
     "recharts": "^2.8.0",
     "date-fns": "^2.30.0",
-    "react-particles": "^2.12.2",
-    "tsparticles": "^3.0.3",
-    "tsparticles-slim": "^3.0.3"
+    "react-particles": "^3.5.0",
+    "tsparticles": "^3.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
