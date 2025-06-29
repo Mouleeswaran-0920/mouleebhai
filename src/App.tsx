@@ -150,7 +150,7 @@ function App() {
 
   const backgroundClass = weather 
     ? getWeatherBackground(weather.main, weather.isNight, theme)
-    : 'min-h-screen bg-gradient-to-br from-rose-400 via-pink-500 to-purple-600';
+    : 'min-h-screen bg-gradient-to-br from-red-400 via-orange-400 via-yellow-400 via-green-400 via-blue-400 via-indigo-400 to-purple-500';
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -178,13 +178,14 @@ function App() {
 
   return (
     <div className={`${backgroundClass} relative overflow-hidden`}>
-      {/* Animated background elements */}
+      {/* Rainbow animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-red-500/10 via-yellow-500/10 via-green-500/10 to-blue-500/10 rounded-full blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
+            rotate: [0, 180, 360],
           }}
           transition={{
             duration: 20,
@@ -193,13 +194,26 @@ function App() {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-purple-500/10 via-pink-500/10 via-orange-500/10 to-cyan-500/10 rounded-full blur-3xl"
           animate={{
             x: [0, -100, 0],
             y: [0, 50, 0],
+            rotate: [360, 180, 0],
           }}
           transition={{
             duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/5 via-teal-500/5 via-cyan-500/5 to-blue-500/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 360, 0],
+          }}
+          transition={{
+            duration: 30,
             repeat: Infinity,
             ease: "linear"
           }}
@@ -216,15 +230,15 @@ function App() {
           {/* Header */}
           <motion.div className="text-center mb-8" variants={itemVariants}>
             <motion.h1 
-              className="text-4xl md:text-6xl font-bold text-white mb-2 bg-gradient-to-r from-white via-pink-100 to-purple-100 bg-clip-text"
+              className="text-4xl md:text-6xl font-bold text-white mb-2 bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 via-indigo-200 to-purple-200 bg-clip-text text-transparent"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 100 }}
             >
-              WeatherPro
+              🌈 RainbowWeather
             </motion.h1>
-            <p className="text-white/80 text-lg">
-              Professional weather insights at your fingertips
+            <p className="text-white/90 text-lg bg-gradient-to-r from-pink-200 to-cyan-200 bg-clip-text text-transparent">
+              Experience weather in full spectrum colors
             </p>
           </motion.div>
 
@@ -320,20 +334,20 @@ function App() {
                     className="flex justify-center mb-6"
                     variants={itemVariants}
                   >
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-1 border border-white/20">
+                    <div className="bg-gradient-to-r from-white/10 via-white/15 to-white/10 backdrop-blur-md rounded-2xl p-1 border border-white/20">
                       {[
-                        { id: 'overview', label: 'Overview' },
-                        { id: 'hourly', label: 'Hourly' },
-                        { id: 'map', label: 'Radar' },
-                        { id: 'air', label: 'Air Quality' }
+                        { id: 'overview', label: '🌟 Overview' },
+                        { id: 'hourly', label: '⏰ Hourly' },
+                        { id: 'map', label: '🗺️ Radar' },
+                        { id: 'air', label: '💨 Air Quality' }
                       ].map((tab) => (
                         <button
                           key={tab.id}
                           onClick={() => setActiveTab(tab.id as any)}
                           className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                             activeTab === tab.id
-                              ? 'bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-white shadow-lg'
-                              : 'text-white/70 hover:text-white hover:bg-white/10'
+                              ? 'bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 text-white shadow-lg'
+                              : 'text-white/70 hover:text-white hover:bg-gradient-to-r hover:from-white/5 hover:to-white/10'
                           }`}
                         >
                           {tab.label}
@@ -404,7 +418,7 @@ function App() {
                         {airQuality ? (
                           <AirQuality data={airQuality} detailed />
                         ) : (
-                          <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center text-white">
+                          <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-8 text-center text-white border border-white/20">
                             <p>Air quality data not available for this location</p>
                           </div>
                         )}
@@ -419,9 +433,9 @@ function App() {
                   key="empty"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-center text-white/60"
+                  className="text-center text-white/80"
                 >
-                  <p>Search for a city to see professional weather insights</p>
+                  <p className="text-xl">🌈 Search for a city to see rainbow weather magic! ✨</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -429,10 +443,12 @@ function App() {
 
           {/* Footer */}
           <motion.div 
-            className="mt-16 text-center text-white/60"
+            className="mt-16 text-center text-white/70"
             variants={itemVariants}
           >
-            <p>Powered by OpenWeatherMap API • Built with ❤️ for weather enthusiasts</p>
+            <p className="bg-gradient-to-r from-pink-200 via-purple-200 to-cyan-200 bg-clip-text text-transparent">
+              🌈 Powered by OpenWeatherMap API • Built with rainbow love for weather enthusiasts 🌈
+            </p>
           </motion.div>
         </motion.div>
       </div>
