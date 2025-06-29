@@ -14,6 +14,8 @@ import { UnitToggle } from './components/UnitToggle';
 import { ThemeToggle } from './components/ThemeToggle';
 import { FavoriteLocations } from './components/FavoriteLocations';
 import { WeatherInsights } from './components/WeatherInsights';
+import { ParticleBackground } from './components/ParticleBackground';
+import { FloatingWeatherElements } from './components/FloatingWeatherElements';
 import { WeatherData, ForecastData, HourlyData, AirQualityData } from './types/weather';
 import { fetchWeatherData, fetchForecastData, fetchHourlyData, fetchAirQuality } from './utils/weatherApi';
 import { getWeatherBackground, getCurrentLocation } from './utils/weatherHelpers';
@@ -178,6 +180,18 @@ function App() {
 
   return (
     <div className={`${backgroundClass} relative overflow-hidden`}>
+      {/* Particle Background */}
+      <ParticleBackground 
+        weatherCondition={weather?.main || 'clear'} 
+        isNight={weather?.isNight || false} 
+      />
+      
+      {/* Floating Weather Elements */}
+      <FloatingWeatherElements 
+        weatherCondition={weather?.main || 'clear'} 
+        isNight={weather?.isNight || false} 
+      />
+
       {/* Rainbow animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -230,15 +244,15 @@ function App() {
           {/* Header */}
           <motion.div className="text-center mb-8" variants={itemVariants}>
             <motion.h1 
-              className="text-4xl md:text-6xl font-bold text-white mb-2 bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 via-indigo-200 to-purple-200 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold text-white mb-2 bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 via-indigo-200 to-purple-200 bg-clip-text text-transparent drop-shadow-2xl"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 100 }}
             >
-              🌈 RainbowWeather
+              🌈 RainbowWeather ✨
             </motion.h1>
-            <p className="text-white/90 text-lg bg-gradient-to-r from-pink-200 to-cyan-200 bg-clip-text text-transparent">
-              Experience weather in full spectrum colors
+            <p className="text-white/90 text-lg bg-gradient-to-r from-pink-200 to-cyan-200 bg-clip-text text-transparent drop-shadow-lg">
+              Experience weather in full spectrum colors with magical particles
             </p>
           </motion.div>
 
@@ -447,7 +461,7 @@ function App() {
             variants={itemVariants}
           >
             <p className="bg-gradient-to-r from-pink-200 via-purple-200 to-cyan-200 bg-clip-text text-transparent">
-              🌈 Powered by OpenWeatherMap API • Built with rainbow love for weather enthusiasts 🌈
+              🌈 Powered by OpenWeatherMap API • Built with rainbow love and magical particles 🌈
             </p>
           </motion.div>
         </motion.div>
